@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Учебное приложение - Расчёт электроники</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='/css/style.css') }}"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <a
+        href="/"
+        class="logo"
+        >TeslaProject</a
+      >
+      <nav class="main-nav">
+        <a href="/theory">Теория</a>
+        <a href="/calculations/">Расчётные работы</a>
+        <a href="/reference">Справочник</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Расчёт электронных аналоговых устройств</h1>
+      <p style="text-align: center; font-size: 1.2rem">
+        Добро пожаловать в учебное приложение. Выберите интересующий вас раздел
+        для начала работы.
+      </p>
+
+      <div class="nav-grid">
+        <a
+          href="/theory"
+          class="nav-card"
+        >
+          <h2>Теория</h2>
+          <p>Основные теоретические сведения по расчету электронных схем.</p>
+        </a>
+        <a
+          href="/calculations/"
+          class="nav-card"
+        >
+          <h2>Расчётные работы</h2>
+          <p>
+            Интерактивные калькуляторы для расчёта параметров электронных
+            устройств.
+          </p>
+        </a>
+        <a
+          href="/reference"
+          class="nav-card"
+        >
+          <h2>Справочные материалы</h2>
+          <p>
+            Таблицы с параметрами транзисторов, ОУ и другие полезные данные.
+          </p>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

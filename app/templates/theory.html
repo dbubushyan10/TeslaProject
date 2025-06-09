@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Теория</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #232526, #414345);
+      color: #f9f9f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+      width: 320px; /* ширина списка тем */
+    }
+    li {
+      margin: 12px 0;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      color: #ffffff;
+      background: #1e90ff;
+      padding: 12px 0;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #63b3ed;
+      transform: scale(1.03);
+    }
+    .back-button {
+      margin-top: 20px;
+      background-color: #28a745;
+      width: auto; /* сброс ширины */
+      padding: 10px 25px; /* нормальные отступы */
+      display: inline-block; /* вместо блока — компактная кнопка */
+    }
+    .back-button:hover {
+      background-color: #58d68d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Раздел "Теория"</h1>
+  <p>Выберите тему:</p>
+
+  <ul>
+    <li><a href="/theory/rectifier" class="btn">Однофазный полупроводниковый выпрямитель</a></li>
+    <li><a href="/theory/transistor_params" class="btn">Определение h-параметров биполярного транзистора</a></li>
+    <li><a href="/theory/amplifier_stage" class="btn">Усилительный каскад на биполярном транзисторе</a></li>
+    <li><a href="/theory/opamp_circuits" class="btn">Расчёт аналоговых устройств на ОУ</a></li>
+    <li><a href="/theory/transfer_function" class="btn">Передаточная функция и ЛАЧХ</a></li>
+  </ul>
+
+  <a href="/" class="btn back-button">Назад на главную</a>
+</body>
+</html>

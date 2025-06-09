@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расчёт параметров выпрямителя</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="/" class="logo">TeslaProject</a>
+        <nav class="main-nav">
+            <a href="/theory">Теория</a>
+            <a href="/calculations/">Расчётные работы</a>
+            <a href="/reference">Справочник</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Расчёт параметров выпрямителя</h1>
+        
+        <div class="calc-grid">
+            <!-- Input Form Card -->
+            <div class="card">
+                <h2>Входные данные</h2>
+                <form method="POST" action="/calculations/rectifier">
+                    <div>
+                        <label for="U0">Выходное напряжение U<sub>0</sub> (В):</label>
+                        <input type="number" step="0.01" name="U0" id="U0" value="{{ U0 or '12' }}" required>
+                    </div>
+                    <div>
+                        <label for="I0">Ток нагрузки I<sub>0</sub> (А):</label>
+                        <input type="number" step="0.01" name="I0" id="I0" value="{{ I0 or '1' }}" required>
+                    </div>
+                    <div>
+                        <label for="kp">Коэф. пульсаций k<sub>п</sub>:</label>
+                        <input type="number" step="0.001" name="kp" id="kp" value="{{ kp or '0.01' }}" required>
+                    </div>
+                    <div>
+                        <label for="schema">Схема выпрямителя:</label>
+                        <select name="schema" id="schema" required>
+                            <option value="а" {% if schema == 'а' %}selected{% endif %}>а) Однополупериодная</option>
+                            <option value="б" {% if schema == 'б' %}selected{% endif %}>б) Двухполупериодная</option>
+                            <option value="в" {% if schema == 'в' %}selected{% endif %}>в) Мостовая</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Рассчитать</button>
+                </form>
+                {% if error %}
+                    <div class="error">{{ error }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Results Card -->
+            <div class="card">
+                <h2>Результаты расчета</h2>
+                {% if result %}
+                <div class="result-section">
+                    <h3>Подобранный диод: <b>{{ result.diode.name }}</b></h3>
+                    <p>
+                        U<sub>обр. расч.</sub> = {{ result.Uobr_calc }} В (макс. доп. {{ result.diode.Uobr }} В) <br>
+                        I<sub>d.max расч.</sub> = {{ result.Idmax }} А (макс. доп. {{ result.diode.Imax }} А)
+                    </p>
+                    
+                    <table>
+                        <tr> <th>Параметр</th> <th>Значение</th> </tr>
+                        <tr> <td>Сопротивление нагрузки R<sub>н</sub></td> <td>{{ result.Rn }} Ом</td> </tr>
+                        <tr> <td>Мощность в нагрузке P<sub>н</sub></td> <td>{{ result.P_н }} Вт</td> </tr>
+                        <tr> <td>Угол отсечки θ</td> <td>{{ result.theta_deg }}°</td> </tr>
+                        <tr> <td>Ёмкость фильтра C</td> <td>{{ result.C }} мкФ</td> </tr>
+                        <tr> <td>Действующее U<sub>2</sub></td> <td>{{ result.U2 }} В</td> </tr>
+                        <tr> <td>Коэф. трансформации k</td> <td>{{ result.k }}</td> </tr>
+                        <tr> <td>Действующий ток I<sub>1</sub></td> <td>{{ result.I1 }} А</td> </tr>
+                        <tr> <td>Действующий ток I<sub>2</sub></td> <td>{{ result.I2 }} А</td> </tr>
+                    </table>
+                </div>
+                {% else %}
+                <p>Введите данные и нажмите "Рассчитать", чтобы увидеть результаты.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if result %}
+        <div class="plot-container">
+            <div id="plotly-graph"></div>
+        </div>
+        {% endif %}
+
+        <div class="back-button-container">
+            <a href="/calculations" class="btn">← Назад к выбору расчёта</a>
+        </div>
+    </div>
+
+    {% if result %}
+    <script>
+        // Рендеринг интерактивного графика Plotly
+        const graphData = JSON.parse('{{ result.plot_json | safe }}');
+        Plotly.newPlot('plotly-graph', graphData.data, graphData.layout, {responsive: true});
+    </script>
+    {% endif %}
+
+</body>
+</html>
+

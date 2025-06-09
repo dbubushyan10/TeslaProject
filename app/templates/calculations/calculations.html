@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Расчётные работы</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='/css/style.css') }}"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <a
+        href="/"
+        class="logo"
+        >TeslaProject</a
+      >
+      <nav class="main-nav">
+        <a href="/theory">Теория</a>
+        <a href="/calculations/">Расчётные работы</a>
+        <a href="/reference">Справочник</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Раздел "Расчётные работы"</h1>
+      <p style="text-align: center; font-size: 1.2rem">
+        Выберите задачу для интерактивного расчёта:
+      </p>
+
+      <div class="nav-grid">
+        <a
+          href="/calculations/rectifier"
+          class="nav-card"
+        >
+          <h2>Однофазный выпрямитель</h2>
+          <p>
+            Расчёт параметров однофазного полупроводникового выпрямителя с
+            ёмкостным фильтром.
+          </p>
+        </a>
+        <a
+          href="#"
+          class="nav-card"
+          style="opacity: 0.5; cursor: not-allowed"
+        >
+          <h2>h-параметры транзистора</h2>
+          <p>В разработке...</p>
+        </a>
+        <a
+          href="#"
+          class="nav-card"
+          style="opacity: 0.5; cursor: not-allowed"
+        >
+          <h2>Усилительный каскад</h2>
+          <p>В разработке...</p>
+        </a>
+      </div>
+
+      <div class="back-button-container">
+        <a
+          href="/"
+          class="btn"
+          >Назад на главную</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

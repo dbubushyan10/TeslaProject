@@ -1,0 +1,294 @@
+/* General Body & Typography */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  --primary-color: #4a90e2;
+  --primary-hover-color: #3d7fc3;
+  --background-color: #1a1a2e;
+  --surface-color: #16213e;
+  --card-color: #0f3460;
+  --text-color: #e3e3e3;
+  --header-color: #ffffff;
+  --border-color: #4a90e2;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --shadow-color: rgba(74, 144, 226, 0.2);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header and Navigation */
+.main-header {
+  background: var(--surface-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.main-header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--header-color);
+  text-decoration: none;
+}
+
+.main-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease-out;
+}
+
+.main-nav a:hover {
+  color: var(--primary-color);
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Main Container */
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  animation: fadeIn 0.7s ease-out 0.2s;
+  animation-fill-mode: both; /* Keeps the state of the animation at the end */
+}
+
+/* Card Styles */
+.card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px var(--shadow-color);
+  border-left: 5px solid var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--header-color);
+  font-weight: 700;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Button Styles */
+.btn {
+  background: var(--primary-color);
+  color: var(--header-color);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--primary-hover-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-hover-color);
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* Grid for calculation page */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Result and Formula Styles */
+.result-section,
+.formulas-section {
+  margin-top: 2rem;
+}
+
+.formula {
+  background: var(--card-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1.1em;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--card-color);
+  color: var(--header-color);
+}
+
+.plot-container {
+  padding: 1rem;
+  background: var(--surface-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px var(--shadow-color);
+  margin-top: 2rem;
+}
+
+.error {
+  color: white;
+  background: var(--error-color);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.check-msg {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.check-msg.correct {
+  color: var(--success-color);
+}
+
+.check-msg.incorrect {
+  color: var(--error-color);
+}
+
+/* Home page links */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.nav-card {
+  background: var(--surface-color);
+  padding: 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(74, 144, 226, 0.4);
+}
+
+.nav-card h2 {
+  color: var(--header-color);
+  border: none;
+}
+
+/* Back button */
+.back-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}

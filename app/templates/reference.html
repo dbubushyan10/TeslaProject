@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Справочные материалы</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='/css/style.css') }}"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <a
+        href="/"
+        class="logo"
+        >TeslaProject</a
+      >
+      <nav class="main-nav">
+        <a href="/theory">Теория</a>
+        <a href="/calculations/">Расчётные работы</a>
+        <a href="/reference">Справочник</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Справочные материалы</h1>
+
+      <div class="card">
+        <h2>Предельные значения параметров транзисторов</h2>
+        <table>
+          <!-- Содержимое таблицы осталось без изменений -->
+          <thead>
+            <tr>
+              <th>Тип транзистора</th>
+              <th>U<sub>кз</sub> max, B</th>
+              <th>I<sub>к</sub> max, mA</th>
+              <th>P<sub>к</sub> max, mВт</th>
+              <th>&beta;<sub>min</sub> ÷ &beta;<sub>max</sub></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>МП25</td>
+              <td>15</td>
+              <td>20</td>
+              <td>100</td>
+              <td>13 ÷ 25</td>
+            </tr>
+            <tr>
+              <td>МП36А</td>
+              <td>15</td>
+              <td>40</td>
+              <td>150</td>
+              <td>15 ÷ 45</td>
+            </tr>
+            <tr>
+              <td>МП39</td>
+              <td>15</td>
+              <td>40</td>
+              <td>150</td>
+              <td>20 ÷ 60</td>
+            </tr>
+            <tr>
+              <td>МП41</td>
+              <td>15</td>
+              <td>20</td>
+              <td>150</td>
+              <td>30 ÷ 60</td>
+            </tr>
+            <tr>
+              <td>МП42А</td>
+              <td>30</td>
+              <td>40</td>
+              <td>250</td>
+              <td>30 ÷ 50</td>
+            </tr>
+            <tr>
+              <td>МП111</td>
+              <td>20</td>
+              <td>8</td>
+              <td>50</td>
+              <td>10 ÷ 25</td>
+            </tr>
+            <tr>
+              <td>МП113</td>
+              <td>20</td>
+              <td>18</td>
+              <td>100</td>
+              <td>15 ÷ 45</td>
+            </tr>
+            <tr>
+              <td>П-401</td>
+              <td>10</td>
+              <td>7</td>
+              <td>20</td>
+              <td>16 ÷ 300</td>
+            </tr>
+            <tr>
+              <td>2Т368А</td>
+              <td>16</td>
+              <td>30</td>
+              <td>225</td>
+              <td>50 ÷ 300</td>
+            </tr>
+            <tr>
+              <td>2Т382А</td>
+              <td>10</td>
+              <td>18</td>
+              <td>80</td>
+              <td>40 ÷ 330</td>
+            </tr>
+            <tr>
+              <td>2Т399А</td>
+              <td>15</td>
+              <td>20</td>
+              <td>150</td>
+              <td>40 ÷ 140</td>
+            </tr>
+            <tr>
+              <td>2Т3123А-2</td>
+              <td>10</td>
+              <td>45</td>
+              <td>120</td>
+              <td>20 ÷ 140</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Частотные звенья коррекции и их параметры</h2>
+        <table>
+          <!-- Содержимое таблицы осталось без изменений -->
+          <thead>
+            <tr>
+              <th>№ варианта</th>
+              <th>Тип ОУ</th>
+              <th>Коэффициент усиления ОУ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>K140УД1А</td>
+              <td>900</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>K140УД1Б</td>
+              <td>2000</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>K140УД5А</td>
+              <td>1500</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>K140УД5Б</td>
+              <td>2500</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>K140УД6</td>
+              <td>50000</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>K140УД8</td>
+              <td>30000</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>KM553УД1</td>
+              <td>10000</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>K140УД17</td>
+              <td>150000</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>K153УД1</td>
+              <td>10000</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>K153УД5</td>
+              <td>500000</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>K14008УД1</td>
+              <td>70000</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>K574УД2</td>
+              <td>25000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="back-button-container">
+        <a
+          href="/"
+          class="btn"
+          >Назад на главную</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
